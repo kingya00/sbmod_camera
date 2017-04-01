@@ -7,27 +7,26 @@
   "shortdescription" : "Fake Camera",
   "race" : "ancient",
   "category" : "other",
-  "price" : 0,
-  "lightColor" : [109, 77, 128],
+  "price" : 100,
 
-  "apexDescription" : "The anvil works, I wonder what beings made this.",
-  "avianDescription" : "This anvil is of ancient origin",
-  "floranDescription" : "Floran push buttons. Make thingsss happen!",
-  "glitchDescription" : "Impressed. The technical applications of this anvil are as advanced as they are ancient.",
-  "humanDescription" : "A anvil made to stand the test of time",
-  "hylotlDescription" : "This anvil looks extremely old, but still functional.",
-  "novakidDescription" : "This anvil looks ancient...",
+  "apexDescription" : "Use it to get a portrait of yourself.",
+  "avianDescription" : "Use it to get a portrait of yourself.",
+  "floranDescription" : "Use it to get a portrait of yourself.",
+  "glitchDescription" : "Use it to get a portrait of yourself.",
+  "humanDescription" : "Use it to get a portrait of yourself.",
+  "hylotlDescription" : "Use it to get a portrait of yourself.",
+  "novakidDescription" : "Use it to get a portrait of yourself.",
 
-  "inventoryIcon" : "weaponupgradeanvil.png",
+  "inventoryIcon" : "fakecameraicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "weaponupgradeanvil.png:<frame>", "fullbright" : true } ],
+      "imageLayers" : [ { "image" : "fakecamera.png:<frame>", "fullbright" : true } ],
       "flipImages" : true,
       "direction" : "left",
       "lightPosition" : [0, 1],
 
       "imagePosition" : [-16, 0],
-      "frames" : 4,
+      "frames" : 1,
       "animationCycle" : 0.5,
 
       "spaceScan" : 0.1,
