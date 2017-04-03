@@ -1,13 +1,16 @@
 function init()
+  local guiConfig = root.assetJson("/objects/fakecamera/fakecamera.config:gui")
   self.photoType = 1
   self.backgroundType = 1
-  self.backgroundImages = {
-    {"/interface/scripted/terraformer/bar_cursor_base.png", "/interface/scripted/terraformer/bar_cursor_hover.png",  "/interface/scripted/terraformer/bar_cursor_disabled.png"},
-    {"/interface/scripted/terraformer/bar_cursor_base.png", "/interface/scripted/terraformer/bar_cursor_hover.png",  "/interface/scripted/terraformer/bar_cursor_disabled.png"}
-  }
+  self.photoTypes = guiConfig.photoTypes
+  self.backgroundImages = guiConfig.backgroundImages
+  self.buttonImages = guiConfig.buttonImages
+  self.checkboxes = guiConfig.checkboxes
+  self.buttonCheckedImages = guiConfig.buttonCheckedImages
 end
 
 function update(dt)
+  updateButtonImages()
   updatePriview()
 end
 
@@ -15,14 +18,39 @@ function updatePriview()
   widget.setImage("priview", self.backgroundImages[self.photoType][self.backgroundType])
 end
 
+function updateButtonImages()
+  for checkbox, index in pairs(self.checkboxes) do
+    widget.setButtonImage(checkbox, self.buttonImages[self.photoType][index])
+    --widget.setButtonCheckedImages(checkbox, self.buttonCheckedImages[self.photoType][index])
+  end
+end
+
 function takePhoto()
-  pane.dismiss()
+  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoTypes[self.photoType])
 end
 
 function photoTypeSelector()
   self.photoType = widget.getSelectedOption("photoTypeSelector")
 end
 
-function backgroundTypeSelector()
-  self.backgroundType = widget.getSelectedOption("backgroundTypeSelector")
+function selectBackground01()
+  backgroundSelector("background01Button")
+end
+
+function selectBackground02()
+  backgroundSelector("background02Button")
+end
+
+function selectBackground03()
+  backgroundSelector("background03Button")
+end
+
+function backgroundSelector(id)
+  widget.setChecked(id, true)
+  self.backgroundType = self.checkboxes[id]
+  for checkbox, _ in pairs(self.checkboxes) do
+    if checkbox ~= id then
+      widget.setChecked(checkbox, false)
+    end
+  end
 end
