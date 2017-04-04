@@ -1,5 +1,5 @@
 {
-  "objectName" : "photoframe",
+  "objectName" : "photoframe-bust03",
   "colonyTags" : ["human"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -20,7 +20,7 @@
   "inventoryIcon" : "photoframe.png",
   "orientations" : [
     {
-      "image" : "photoframe.png:<color>",
+      "image" : "bust01.png:<color>",
       "imagePosition" : [0, 0],
       "frames" : 1,
       "animationCycle" : 0.5,
