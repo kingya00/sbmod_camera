@@ -7,14 +7,15 @@ function init()
   self.buttonImages = guiConfig.buttonImages
   self.buttonCheckedImages = guiConfig.buttonCheckedImages
   self.checkboxes = guiConfig.checkboxes
+  self.photoFrames = guiConfig.photoFrames
 end
 
 function update(dt)
   updateButtonImages()
-  updatePriview()
+  updatePreview()
 end
 
-function updatePriview()
+function updatePreview()
   widget.setImage("preview", self.backgroundImages[self.photoType][self.backgroundType])
 end
 
@@ -28,7 +29,7 @@ function updateButtonImages()
 end
 
 function takePhoto()
-  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoTypes[self.photoType])
+  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoFrames[self.photoType][self.backgroundType], self.photoTypes[self.photoType])
 end
 
 function photoTypeSelector()
