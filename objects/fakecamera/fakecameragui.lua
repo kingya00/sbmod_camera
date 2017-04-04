@@ -15,7 +15,7 @@ function update(dt)
 end
 
 function updatePriview()
-  widget.setImage("priview", self.backgroundImages[self.photoType][self.backgroundType])
+  widget.setImage("preview", self.backgroundImages[self.photoType][self.backgroundType])
 end
 
 function updateButtonImages()
