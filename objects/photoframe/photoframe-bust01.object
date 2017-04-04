@@ -17,7 +17,7 @@
   "hylotlDescription" : "Even during times of oppression, the Apex take time out to deface posters.",
   "novakidDescription" : "Defacin' a Big Ape poster is a daring move. I bet someone paid the price.",
 
-  "inventoryIcon" : "bust01.png",
+  "inventoryIcon" : "photoicon.png",
   "orientations" : [
     {
       "image" : "bust01.png:<color>",
