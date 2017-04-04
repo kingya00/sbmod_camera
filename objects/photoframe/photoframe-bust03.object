@@ -1,0 +1,36 @@
+{
+  "objectName" : "photoframe-bust03",
+  "colonyTags" : ["human"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 100,
+
+  "description" : "Portrait for You.",
+  "shortdescription" : "Portrait for You",
+  "race" : "generic",
+
+  "apexDescription" : "Looks like someone isn't fond of Big Ape.",
+  "avianDescription" : "A defaced poster of Big Ape. Good work.",
+  "floranDescription" : "Floran find monkey funny!",
+  "glitchDescription" : "Amused. Someone has defaced this Big Ape poster.",
+  "humanDescription" : "Looks like someone isn't afraid of the Miniknog.",
+  "hylotlDescription" : "Even during times of oppression, the Apex take time out to deface posters.",
+  "novakidDescription" : "Defacin' a Big Ape poster is a daring move. I bet someone paid the price.",
+
+  "inventoryIcon" : "bust01.png",
+  "orientations" : [
+    {
+      "image" : "bust01.png:<color>",
+      "imagePosition" : [0, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+  "breakDropOptions" : [ ],
+
+  "scripts" : [ "photoframe.lua" ],
+  "animationScripts" : [ "animation.lua" ]
+}

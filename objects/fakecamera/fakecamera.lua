@@ -2,11 +2,10 @@ function init()
   local objectConfig = root.assetJson("/objects/fakecamera/fakecamera.config:object")
   self.outputSlot = objectConfig.outputSlot
   self.offset = objectConfig.offset
-  self.photoItem = objectConfig.photoItem
   self.avatarPattern = objectConfig.avatarPattern
 
-  message.setHandler("takePhotos", function(_, _, entityId, photoType)
-      takePhotos(entityId, photoType)
+  message.setHandler("takePhotos", function(_, _, entityId, photoFrame, photoType)
+      takePhotos(entityId, photoFrame, photoType)
     end)
 end
 
@@ -14,12 +13,12 @@ function update()
 
 end
 
-function takePhotos(entityId, photoType)
+function takePhotos(entityId, photoFrame, photoType)
   if world.entityExists(entityId) then
     --animator.playSound("shutter")
     --animator.burstParticleEmitter("flash")
     local portrait = world.entityPortrait(entityId, "full")
-    local photoframe = root.createItem(self.photoItem)
+    local photoframe = root.createItem(photoFrame)
     local parameters = {}
     parameters.layers = generateLayer(portrait, photoType)
     parameters.offset = self.offset[photoType]

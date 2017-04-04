@@ -1,5 +1,5 @@
 {
-  "objectName" : "photoframe",
+  "objectName" : "photoframe-bust01",
   "colonyTags" : ["human"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -17,10 +17,10 @@
   "hylotlDescription" : "Even during times of oppression, the Apex take time out to deface posters.",
   "novakidDescription" : "Defacin' a Big Ape poster is a daring move. I bet someone paid the price.",
 
-  "inventoryIcon" : "photoframe.png",
+  "inventoryIcon" : "bust01.png",
   "orientations" : [
     {
-      "image" : "photoframe.png:<color>",
+      "image" : "bust01.png:<color>",
       "imagePosition" : [0, 0],
       "frames" : 1,
       "animationCycle" : 0.5,

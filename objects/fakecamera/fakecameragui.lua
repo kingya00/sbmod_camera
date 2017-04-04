@@ -5,28 +5,31 @@ function init()
   self.photoTypes = guiConfig.photoTypes
   self.backgroundImages = guiConfig.backgroundImages
   self.buttonImages = guiConfig.buttonImages
-  self.checkboxes = guiConfig.checkboxes
   self.buttonCheckedImages = guiConfig.buttonCheckedImages
+  self.checkboxes = guiConfig.checkboxes
+  self.photoFrames = guiConfig.photoFrames
 end
 
 function update(dt)
   updateButtonImages()
-  updatePriview()
+  updatePreview()
 end
 
-function updatePriview()
-  widget.setImage("priview", self.backgroundImages[self.photoType][self.backgroundType])
+function updatePreview()
+  widget.setImage("preview", self.backgroundImages[self.photoType][self.backgroundType])
 end
 
 function updateButtonImages()
   for checkbox, index in pairs(self.checkboxes) do
-    widget.setButtonImage(checkbox, self.buttonImages[self.photoType][index])
-    --widget.setButtonCheckedImages(checkbox, self.buttonCheckedImages[self.photoType][index])
+    widget.setButtonImages(checkbox, self.buttonImages[self.photoType][index])
+    if widget.getChecked(checkbox) then
+      widget.setButtonCheckedImages(checkbox, self.buttonCheckedImages[self.photoType][index])
+    end
   end
 end
 
 function takePhoto()
-  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoTypes[self.photoType])
+  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoFrames[self.photoType][self.backgroundType], self.photoTypes[self.photoType])
 end
 
 function photoTypeSelector()
