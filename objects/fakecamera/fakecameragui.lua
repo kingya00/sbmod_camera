@@ -5,8 +5,8 @@ function init()
   self.photoTypes = guiConfig.photoTypes
   self.backgroundImages = guiConfig.backgroundImages
   self.buttonImages = guiConfig.buttonImages
-  self.checkboxes = guiConfig.checkboxes
   self.buttonCheckedImages = guiConfig.buttonCheckedImages
+  self.checkboxes = guiConfig.checkboxes
 end
 
 function update(dt)
@@ -20,8 +20,10 @@ end
 
 function updateButtonImages()
   for checkbox, index in pairs(self.checkboxes) do
-    widget.setButtonImage(checkbox, self.buttonImages[self.photoType][index])
-    --widget.setButtonCheckedImages(checkbox, self.buttonCheckedImages[self.photoType][index])
+    widget.setButtonImages(checkbox, self.buttonImages[self.photoType][index])
+    if widget.getChecked(checkbox) then
+      widget.setButtonCheckedImages(checkbox, self.buttonCheckedImages[self.photoType][index])
+    end
   end
 end
 
