@@ -8,6 +8,8 @@ function init()
   self.buttonCheckedImages = guiConfig.buttonCheckedImages
   self.checkboxes = guiConfig.checkboxes
   self.photoFrames = guiConfig.photoFrames
+  self.imageScaler = guiConfig.imageScaler
+  self.backgroundPosition = guiConfig.backgroundPosition
 end
 
 function update(dt)
@@ -16,7 +18,9 @@ function update(dt)
 end
 
 function updatePreview()
+  widget.setPosition("preview", self.backgroundPosition[self.photoType])
   widget.setImage("preview", self.backgroundImages[self.photoType][self.backgroundType])
+  widget.setImageScale("preview", self.imageScaler[self.photoType])
 end
 
 function updateButtonImages()
