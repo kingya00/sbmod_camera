@@ -2,6 +2,7 @@ function init()
   local guiConfig = root.assetJson("/objects/fakecamera/fakecamera.config:gui")
   self.photoType = 1
   self.backgroundType = 1
+  self.count = 0
   self.photoTypes = guiConfig.photoTypes
   self.backgroundImages = guiConfig.backgroundImages
   self.buttonImages = guiConfig.buttonImages
@@ -15,6 +16,7 @@ end
 function update(dt)
   updateButtonImages()
   updatePreview()
+  updateActionButton()
 end
 
 function updatePreview()
@@ -32,8 +34,16 @@ function updateButtonImages()
   end
 end
 
+function updateActionButton()
+  if self.count > 0 then
+    widget.setButtonEnabled("takePhoto", true)
+  else
+    widget.setButtonEnabled("takePhoto", false)
+  end
+end
+
 function takePhoto()
-  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoFrames[self.photoType][self.backgroundType], self.photoTypes[self.photoType])
+  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoFrames[self.photoType][self.backgroundType], self.photoTypes[self.photoType], self.count)
 end
 
 function photoTypeSelector()
@@ -61,3 +71,23 @@ function backgroundSelector(id)
     end
   end
 end
+
+function updateCount()
+  local count = widget.getText("tbSpinCount") and tonumber(widget.getText("tbSpinCount")) or 0
+  self.count = count
+end
+
+spinCount = {
+  up = function()
+    local count = widget.getText("tbSpinCount") and tonumber(widget.getText("tbSpinCount")) or 0
+    count = count + 1
+    self.count = count
+    widget.setText("tbSpinCount", tostring(count))
+  end,
+  down = function()
+    local count = widget.getText("tbSpinCount") and tonumber(widget.getText("tbSpinCount")) or 0
+    count = math.max(count - 1, 0)
+    self.count = count
+    widget.setText("tbSpinCount", tostring(count))
+  end
+}

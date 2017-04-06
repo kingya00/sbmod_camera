@@ -4,8 +4,8 @@ function init()
   self.offset = objectConfig.offset
   self.avatarPattern = objectConfig.avatarPattern
 
-  message.setHandler("takePhotos", function(_, _, entityId, photoFrame, photoType)
-      takePhotos(entityId, photoFrame, photoType)
+  message.setHandler("takePhotos", function(_, _, entityId, photoFrame, photoType, count)
+      takePhotos(entityId, photoFrame, photoType, count)
     end)
 end
 
@@ -13,7 +13,7 @@ function update()
 
 end
 
-function takePhotos(entityId, photoFrame, photoType)
+function takePhotos(entityId, photoFrame, photoType, count)
   if world.entityExists(entityId) then
     --animator.playSound("shutter")
     --animator.burstParticleEmitter("flash")
@@ -23,7 +23,9 @@ function takePhotos(entityId, photoFrame, photoType)
     parameters.layers = generateLayer(portrait, photoType)
     parameters.offset = self.offset[photoType]
     photoframe.parameters = parameters
-    world.containerPutItemsAt(entity.id(), photoframe, self.outputSlot)
+    for i = 1, count do
+      world.containerPutItemsAt(entity.id(), photoframe, self.outputSlot)
+    end
   end
 end
 
