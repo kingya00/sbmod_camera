@@ -32,13 +32,24 @@
 
       "spaceScan" : 0.1,
       "anchors" : [ "bottom" ]
+    },
+    {
+      "imageLayers" : [ { "image" : "fakecamera.png:<frame>", "fullbright" : true } ],
+      "direction" : "right",
+      "lightPosition" : [0, 1],
+      "imagePosition" : [-16, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
     }
   ],
 
   "animation" : "fakecamera.animation",
 
-  "openSounds" : [ "/sfx/objects/chest_small_open.ogg" ],
-  "closeSounds" : [ "/sfx/objects/chest_small_close.ogg" ],
+  "openSounds" : [ "/sfx/objects/musicbox_open.ogg" ],
+  "closeSounds" : [ "/sfx/objects/musicbox_close.ogg" ],
   "slotCount" : 1,
   "uiConfig" : "/objects/fakecamera/fakecameragui.config",
   "frameCooldown" : 5,
