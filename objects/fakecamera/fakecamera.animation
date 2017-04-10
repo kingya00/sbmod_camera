@@ -28,6 +28,6 @@
   },
 
   "sounds" : {
-    "shutter" : []
+    "shutter" : [ "/sfx/shutter.ogg" ]
   }
 }

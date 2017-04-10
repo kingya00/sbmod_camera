@@ -43,7 +43,8 @@ function updateActionButton()
 end
 
 function takePhoto()
-  world.sendEntityMessage(pane.containerEntityId(), "takePhotos", pane.playerEntityId(), self.photoFrames[self.photoType][self.backgroundType], self.photoTypes[self.photoType], self.count)
+  world.sendEntityMessage(pane.containerEntityId(), "prepare", pane.playerEntityId(), self.photoFrames[self.photoType][self.backgroundType], self.photoTypes[self.photoType], self.count)
+  pane.dismiss()
 end
 
 function photoTypeSelector()
