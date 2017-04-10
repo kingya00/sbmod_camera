@@ -3,29 +3,39 @@ function init()
   self.outputSlot = objectConfig.outputSlot
   self.offset = objectConfig.offset
   self.avatarPattern = objectConfig.avatarPattern
+  self.shutterTime = objectConfig.shutterTime
+  self.shutterTimer = self.shutterTime
+  self.active = false
 
-  message.setHandler("takePhotos", function(_, _, entityId, photoFrame, photoType, count)
-      takePhotos(entityId, photoFrame, photoType, count)
+  message.setHandler("prepare", function(_, _, ...)
+      animator.playSound("shutter")
+      --animator.burstParticlieEmitter("flash")
+      self.active = true
+      self.photoConfig = {...}
     end)
 end
 
 function update()
-
+  if self.active then
+    self.shutterTimer = math.max(self.shutterTimer - script.updateDt(), 0)
+    if self.shutterTimer == 0 then
+      takePhotos(table.unpack(self.photoConfig))
+      self.shutterTimer = self.shutterTime
+      self.active = false
+    end
+  end
 end
 
 function takePhotos(entityId, photoFrame, photoType, count)
   if world.entityExists(entityId) then
-    --animator.playSound("shutter")
-    --animator.burstParticleEmitter("flash")
     local portrait = world.entityPortrait(entityId, "full")
     local photoframe = root.createItem(photoFrame)
     local parameters = {}
     parameters.layers = generateLayer(portrait, photoType)
     parameters.offset = self.offset[photoType]
     photoframe.parameters = parameters
-    for i = 1, count do
-      world.containerPutItemsAt(entity.id(), photoframe, self.outputSlot)
-    end
+    photoframe.count = count
+    world.containerPutItemsAt(entity.id(), photoframe, self.outputSlot)
   end
 end
 
