@@ -9,7 +9,6 @@ function init()
 
   message.setHandler("prepare", function(_, _, ...)
       animator.playSound("shutter")
-      --animator.burstParticlieEmitter("flash")
       self.active = true
       self.photoConfig = {...}
     end)
@@ -17,11 +16,14 @@ end
 
 function update()
   if self.active then
+    animator.setLightActive("flashLight", true)
     self.shutterTimer = math.max(self.shutterTimer - script.updateDt(), 0)
     if self.shutterTimer == 0 then
+      animator.burstParticleEmitter("flash")
       takePhotos(table.unpack(self.photoConfig))
       self.shutterTimer = self.shutterTime
       self.active = false
+      animator.setLightActive("flashLight", false)
     end
   end
 end
