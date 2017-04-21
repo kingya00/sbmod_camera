@@ -11,9 +11,9 @@ function update(dt)
 end
 
 function initLayers()
-  local position = object.position()
+  local position = addPosition(object.position(), self.offset)
   for _, layer in ipairs(self.layers) do
-    layer.position = addPosition(position, self.offset)
+    layer.position = addPosition(layer.position, position)
   end
 end
 
