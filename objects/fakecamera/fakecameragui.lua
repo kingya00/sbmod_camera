@@ -11,6 +11,11 @@ function init()
   self.photoFrames = guiConfig.photoFrames
   self.imageScaler = guiConfig.imageScaler
   self.backgroundPosition = guiConfig.backgroundPosition
+  self.spinnerPrefix = guiConfig.spinnerPrefix
+  self.spinnerPrefixLength = string.len(self.spinnerPrefix)
+  self.spinnerInitValue = guiConfig.spinnerInitValue
+
+  initSpinner()
 end
 
 function update(dt)
@@ -73,22 +78,29 @@ function backgroundSelector(id)
   end
 end
 
+function initSpinner()
+  widget.setText("tbSpinCount", self.spinnerPrefix .. self.spinnerInitValue)
+end
+
 function updateCount()
-  local count = widget.getText("tbSpinCount") and tonumber(widget.getText("tbSpinCount")) or 0
+  local str = widget.getText("tbSpinCount")
+  local count = str and tonumber(string.sub(str, self.spinnerPrefixLength + 1)) or 0
   self.count = count
 end
 
 spinCount = {
   up = function()
-    local count = widget.getText("tbSpinCount") and tonumber(widget.getText("tbSpinCount")) or 0
+    local str = widget.getText("tbSpinCount")
+    local count = str and tonumber(string.sub(str, self.spinnerPrefixLength + 1)) or 0
     count = count + 1
     self.count = count
-    widget.setText("tbSpinCount", tostring(count))
+    widget.setText("tbSpinCount", tostring(self.spinnerPrefix .. count))
   end,
   down = function()
-    local count = widget.getText("tbSpinCount") and tonumber(widget.getText("tbSpinCount")) or 0
+    local str = widget.getText("tbSpinCount")
+    local count = str and tonumber(string.sub(str, self.spinnerPrefixLength + 1)) or 0
     count = math.max(count - 1, 0)
     self.count = count
-    widget.setText("tbSpinCount", tostring(count))
+    widget.setText("tbSpinCount", tostring(self.spinnerPrefix .. count))
   end
 }
