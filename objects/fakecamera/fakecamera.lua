@@ -3,6 +3,7 @@ function init()
   self.outputSlot = objectConfig.outputSlot
   self.offset = objectConfig.offset
   self.avatarPattern = objectConfig.avatarPattern
+  self.pixelDivisor = objectConfig.pixelDivisor
   self.shutterTime = objectConfig.shutterTime
   self.shutterTimer = self.shutterTime
   self.active = false
@@ -56,7 +57,7 @@ function generateLayer(portrait, photoType)
         image = layer.image,
         color = layer.color,
         fullbright = layer.fullbright,
-        position = layer.position
+        position = {layer.position[1] / self.pixelDivisor, layer.position[2] / self.pixelDivisor}
       })
     end
   end
