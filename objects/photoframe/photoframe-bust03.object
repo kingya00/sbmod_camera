@@ -6,7 +6,7 @@
   "price" : 100,
 
   "description" : "Portrait for You.",
-  "shortdescription" : "Portrait for You",
+  "shortdescription" : "Half-length portrait",
   "race" : "generic",
 
   "apexDescription" : "Look at this beautiful half-length portrait.",
@@ -21,12 +21,12 @@
   "orientations" : [
     {
       "image" : "bust01.png:<color>",
-      "imagePosition" : [0, 0],
+      "imagePosition" : [-4, 3],
       "frames" : 1,
       "animationCycle" : 0.5,
 
       "spaceScan" : 0.1,
-      "anchors" : [ "background" ]
+      "anchors" : [  ]
     }
   ],
   "breakDropOptions" : [ ],

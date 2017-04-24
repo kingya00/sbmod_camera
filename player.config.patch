@@ -1,0 +1,10 @@
+[
+     {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"fakecamera"}},
+     
+	 {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"photoframe-bust01"}},
+     {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"photoframe-bust02"}},
+     {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"photoframe-bust03"}},
+     {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"photoframe-full-length-01"}},
+     {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"photoframe-full-length-02"}},
+     {"op":"add","path":"/defaultBlueprints/tier1/-","value":{"item":"photoframe-full-length-03"}}
+]

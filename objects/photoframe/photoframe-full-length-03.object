@@ -6,16 +6,16 @@
   "price" : 100,
 
   "description" : "Portrait for You.",
-  "shortdescription" : "Portrait for You",
+  "shortdescription" : "Full-length portrait",
   "race" : "generic",
 
-  "apexDescription" : "Looks like someone isn't fond of Big Ape.",
-  "avianDescription" : "A defaced poster of Big Ape. Good work.",
-  "floranDescription" : "Floran find monkey funny!",
-  "glitchDescription" : "Amused. Someone has defaced this Big Ape poster.",
-  "humanDescription" : "Looks like someone isn't afraid of the Miniknog.",
-  "hylotlDescription" : "Even during times of oppression, the Apex take time out to deface posters.",
-  "novakidDescription" : "Defacin' a Big Ape poster is a daring move. I bet someone paid the price.",
+  "apexDescription" : "Look!What a beautiful person!",
+  "avianDescription" : "Look!What a beautiful person!",
+  "floranDescription" : "Look!What a beautiful persssson!",
+  "glitchDescription" : "Praise.What a beautiful person.",
+  "humanDescription" : "Look!What a beautiful persssson!",
+  "hylotlDescription" : "Look!What a beautiful persssson!",
+  "novakidDescription" : "Look!What a beautiful persssson!",
 
   "inventoryIcon" : "fullbodyphotoicon.png",
   "orientations" : [

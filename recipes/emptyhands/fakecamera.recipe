@@ -1,0 +1,13 @@
+{
+  "input" : [    
+    { "item" : "logblock", "count" : 2 },    
+    { "item" : "smallbattery", "count" : 2 },
+	{ "item" : "siliconboard", "count" : 1 },
+    { "item" : "glass", "count" : 2 }	
+  ],
+  "output" : {
+    "item" : "fakecamera",
+    "count" : 1
+  },
+  "groups" : [ "plain", "objects", "all", "mod" ]
+}
